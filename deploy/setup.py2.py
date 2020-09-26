@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="gitdep",
-    version="0.0.1",
+    version="VERSION_GOES_HERE",
     author="Caian Benedicto",
     author_email="caianbene@gmail.com",
     description="Dependency management between git repositories made easy",

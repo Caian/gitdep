@@ -4,11 +4,12 @@ set -euo pipefail
 
 build() {
     what=$1
+    version=$2
     pbin=python$what
     bdir=$pbin
     rm -rf $bdir
     mkdir -p $bdir/bin
-    cp setup.py$what.py $bdir/setup.py
+    sed "s;VERSION_GOES_HERE;$version;" setup.py$what.py >$bdir/setup.py
     cp ../bin/* $bdir/bin
     cp ../{README.md,LICENSE} $bdir
     pushd $bdir
@@ -21,5 +22,6 @@ build() {
     popd
 }
 
-#build 2
-build 3
+VERSION=0.0.2
+#build 2 $VERSION
+build 3 $VERSION
